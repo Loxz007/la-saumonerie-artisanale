@@ -14,6 +14,7 @@ const dict = {
   craftTitle: { fr: "Une création artisanale, du choix du poisson à votre table.", en: "Handcrafted, from choosing the fish to your table.", es: "Una creación artesanal, de la elección del pescado a su mesa.", nl: "Ambachtelijk, van de keuze van de vis tot op uw tafel.", de: "Handwerklich hergestellt, von der Auswahl des Fisches bis auf Ihren Tisch." },
   s1t: { fr: "Sélection", en: "Selection", es: "Selección", nl: "Selectie", de: "Auswahl" },
   s1s: { fr: "Saumon d'Écosse", en: "Scottish salmon", es: "Salmón escocés", nl: "Schotse zalm", de: "Schottischer Lachs" },
+  smokedArtisan: { fr: "Fumé · Artisanal", en: "Smoked · Artisanal", es: "Ahumado · Artesanal", nl: "Gerookt · Ambachtelijk", de: "Geräuchert · Handwerklich" },
   s1x: { fr: "Des saumons écossais choisis un à un pour la finesse de leur chair et leur juste persillage.", en: "Scottish salmon chosen one by one for the delicacy of their flesh and perfect marbling.", es: "Salmones escoceses elegidos uno a uno por la finura de su carne y su veteado justo.", nl: "Schotse zalm, één voor één gekozen om het fijne vlees en de perfecte marmering.", de: "Schottischer Lachs, einzeln ausgewählt für sein zartes Fleisch und seine feine Marmorierung." },
   s2t: { fr: "Fumage", en: "Smoking", es: "Ahumado", nl: "Roken", de: "Räuchern" },
   s2s: { fr: "Au feu de bois", en: "Over a wood fire", es: "Al fuego de leña", nl: "Boven houtvuur", de: "Über Holzfeuer" },

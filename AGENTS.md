@@ -31,4 +31,4 @@ use the editor.
 
 - Keep presentation animations in browser-safe Motion components, respect reduced motion, and retain TanStack routing to preserve SSR and accessibility.
 - Store contact and delivery values in a shared business module so all pages announce consistent information.
-- Start ocean ambience only after user interaction, suspend it offscreen and close its audio context on unmount to avoid unexpected playback.
+- Drive the home hero with GSAP ScrollTrigger + Lenis inside useEffect (cleaned up via gsap.context), skipped entirely under reduced motion.
