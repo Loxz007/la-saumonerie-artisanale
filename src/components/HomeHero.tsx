@@ -88,7 +88,7 @@ export function HomeHero() {
           <p className="hero-fade mx-auto mt-3 max-w-md text-sm text-foreground/80 md:text-base">{t("heroSub")}</p>
           <div className="hero-fade mt-5 flex items-center justify-center gap-6">
             <Button variant="editorial" asChild className="h-11 px-0 text-xs"><Link to="/boutique">{t("shop")}<ArrowUpRight /></Link></Button>
-            <Button asChild variant="ghost" className="gap-3 text-[10px] uppercase"><a href="#activite">{t("discover")}<ArrowDown /></a></Button>
+            <Button asChild variant="ghost" className="gap-3 text-[10px] uppercase"><a href="#selection">{t("discover")}<ArrowDown /></a></Button>
           </div>
         </div>
       </div>

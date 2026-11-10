@@ -1,9 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import fumoir from "@/assets/fumoir.jpg";
-import ocean from "@/assets/ocean-ecosse.jpg";
 import slicing from "@/assets/tranchage-artisanal.jpg";
-import { OceanScene } from "@/components/OceanScene";
 import { HomeHero } from "@/components/HomeHero";
+import { SelectionScene } from "@/components/SelectionScene";
 import { Header, Footer } from "@/components/SiteChrome";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/lib/products";
@@ -27,7 +26,6 @@ export const Route = createFileRoute("/")({
 });
 
 const savoirFaire: { n: string; title: Key; sub: Key; text: Key; img: string }[] = [
-  { n: "01", title: "s1t", sub: "s1s", text: "s1x", img: ocean },
   { n: "02", title: "s2t", sub: "s2s", text: "s2x", img: fumoir },
   { n: "03", title: "s3t", sub: "s3s", text: "s3x", img: slicing },
 ];
@@ -38,13 +36,14 @@ function Index() {
     <div className="bg-background text-foreground">
       <Header />
       <HomeHero />
+      <SelectionScene />
 
       <section id="activite" className="mx-auto max-w-7xl px-6 py-24 md:py-36">
         <Reveal className="grid gap-8 md:grid-cols-[1fr_2fr]"><p className="eyebrow pt-3">{t("craftEyebrow")}</p><h2 className="max-w-3xl font-display text-4xl leading-tight md:text-6xl">{t("craftTitle")}</h2></Reveal>
         <div className="mt-24 space-y-24 md:space-y-40">
           {savoirFaire.map((s, i) => (
-            <div key={s.n} className={`craft-row grid items-center gap-10 md:grid-cols-[1.3fr_1fr] md:gap-24 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
-              {i === 0 ? <OceanScene /> : <CinematicImage src={s.img} alt={t(s.title)} className={i === 1 ? "aspect-[4/5]" : "aspect-[5/4]"} />}
+            <div key={s.n} className={`craft-row grid items-center gap-10 md:grid-cols-[1.3fr_1fr] md:gap-24 ${(i + 1) % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
+              <CinematicImage src={s.img} alt={t(s.title)} className={i === 0 ? "aspect-[4/5]" : "aspect-[5/4]"} />
               <Reveal>
                 <span className="text-xs text-primary">— {s.n}</span>
                 <h3 className="mt-8 font-display text-4xl md:text-5xl">{t(s.title)}</h3>

@@ -12,6 +12,8 @@ const dict = {
   discover: { fr: "Découvrir", en: "Discover", es: "Descubrir", nl: "Ontdek", de: "Entdecken" },
   craftEyebrow: { fr: "Notre savoir-faire", en: "Our craft", es: "Nuestro saber hacer", nl: "Ons vakmanschap", de: "Unser Handwerk" },
   craftTitle: { fr: "Une création artisanale, du choix du poisson à votre table.", en: "Handcrafted, from choosing the fish to your table.", es: "Una creación artesanal, de la elección del pescado a su mesa.", nl: "Ambachtelijk, van de keuze van de vis tot op uw tafel.", de: "Handwerklich hergestellt, von der Auswahl des Fisches bis auf Ihren Tisch." },
+  selQuote: { fr: "Le temps sublime l'exception", en: "Time elevates the exceptional", es: "El tiempo sublima lo excepcional", nl: "De tijd verheft het uitzonderlijke", de: "Zeit veredelt das Außergewöhnliche" },
+  selCta: { fr: "Découvrir la collection", en: "Discover the collection", es: "Descubrir la colección", nl: "Ontdek de collectie", de: "Kollektion entdecken" },
   s1t: { fr: "Sélection", en: "Selection", es: "Selección", nl: "Selectie", de: "Auswahl" },
   s1s: { fr: "Saumon d'Écosse", en: "Scottish salmon", es: "Salmón escocés", nl: "Schotse zalm", de: "Schottischer Lachs" },
   smokedArtisan: { fr: "Fumé · Artisanal", en: "Smoked · Artisanal", es: "Ahumado · Artesanal", nl: "Gerookt · Ambachtelijk", de: "Geräuchert · Handwerklich" },
