@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, Truck, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { langs, useT } from "@/lib/i18n";
+import { business } from "@/lib/business";
 
 function LangSwitch() {
   const { lang, setLang } = useT();
@@ -53,7 +54,8 @@ export function Header() {
         <p className="eyebrow">Saumonerie de Varennes</p>
         <Link to="/" onClick={() => setOpen(false)} className="menu-link font-display text-5xl md:text-8xl">{t("home")}<ArrowUpRight /></Link>
         <Link to="/boutique" onClick={() => setOpen(false)} className="menu-link font-display text-5xl md:text-8xl">{t("shop")}<ArrowUpRight /></Link>
-        <p className="mt-12 text-xs text-muted-foreground">Varennes, France</p>
+        <Link to="/contact" onClick={() => setOpen(false)} className="menu-link font-display text-5xl md:text-8xl">{t("contact")}<ArrowUpRight /></Link>
+        <p className="mt-4 text-xs text-muted-foreground">Varennes, France</p>
       </motion.nav>}</AnimatePresence>
     </header>
   );
@@ -63,6 +65,7 @@ export function Footer() {
   const { t } = useT();
   return (
     <footer className="border-t border-border bg-background">
+      <div className="flex items-center justify-center gap-4 border-b border-border px-6 py-8 text-base"><Truck className="size-6 text-primary" /><p>{t("delivery")} {business.deliveryHours} h</p></div>
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-3">
         <div>
           <p className="font-display text-3xl">Saumonerie de Varennes</p>
@@ -72,10 +75,13 @@ export function Footer() {
           <p className="eyebrow mb-3">{t("nav")}</p>
           <Link to="/" className="block hover:text-primary">{t("home")}</Link>
           <Link to="/boutique" className="block hover:text-primary">{t("shop")}</Link>
+          <Link to="/contact" className="block hover:text-primary">{t("faq")}</Link>
         </div>
         <div className="text-sm text-muted-foreground">
           <p className="eyebrow mb-3">{t("contact")}</p>
           <p>Varennes, France</p>
+          <a href={`mailto:${business.email}`} className="mt-3 block break-all hover:text-primary">{business.email}</a>
+          <Link to="/contact" className="mt-3 block hover:text-primary">{t("contact")}</Link>
         </div>
       </div>
     </footer>

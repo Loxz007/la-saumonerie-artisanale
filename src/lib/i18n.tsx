@@ -32,6 +32,21 @@ const dict = {
   footerTag: { fr: "Saumon fumé artisanal, une tradition au service de votre table.", en: "Artisan smoked salmon, a tradition at the service of your table.", es: "Salmón ahumado artesanal, una tradición al servicio de su mesa.", nl: "Ambachtelijke gerookte zalm, een traditie voor uw tafel.", de: "Handwerklicher Räucherlachs, eine Tradition für Ihren Tisch." },
   nav: { fr: "Navigation", en: "Navigation", es: "Navegación", nl: "Navigatie", de: "Navigation" },
   contact: { fr: "Contact", en: "Contact", es: "Contacto", nl: "Contact", de: "Kontakt" },
+  faq: { fr: "Questions fréquentes", en: "Frequently asked questions", es: "Preguntas frecuentes", nl: "Veelgestelde vragen", de: "Häufige Fragen" },
+  general: { fr: "Questions générales", en: "General questions", es: "Preguntas generales", nl: "Algemene vragen", de: "Allgemeine Fragen" },
+  customer: { fr: "Service client", en: "Customer service", es: "Atención al cliente", nl: "Klantenservice", de: "Kundenservice" },
+  productInfo: { fr: "Produits & informations", en: "Products & information", es: "Productos e información", nl: "Producten & informatie", de: "Produkte & Informationen" },
+  delivery: { fr: "Livraison sous", en: "Delivery within", es: "Entrega en", nl: "Levering binnen", de: "Lieferung innerhalb von" },
+  deliveryQuestion: { fr: "Quel est le délai de livraison ?", en: "How long does delivery take?", es: "¿Cuál es el plazo de entrega?", nl: "Wat is de levertijd?", de: "Wie lange dauert die Lieferung?" },
+  contactQuestion: { fr: "Comment vous contacter ?", en: "How can I contact you?", es: "¿Cómo puedo contactarles?", nl: "Hoe kan ik contact opnemen?", de: "Wie kann ich Sie kontaktieren?" },
+  rangeQuestion: { fr: "Quels produits proposez-vous ?", en: "Which products do you offer?", es: "¿Qué productos ofrecen?", nl: "Welke producten bieden jullie aan?", de: "Welche Produkte bieten Sie an?" },
+  rangeAnswer: { fr: "Découvrez nos dés, cœurs, dos, pavés et tranches de saumon fumé écossais dans la boutique.", en: "Discover our Scottish smoked salmon cubes, hearts, backs, portions and slices in the shop.", es: "Descubra nuestros dados, corazones, lomos, porciones y lonchas de salmón ahumado escocés en la tienda.", nl: "Ontdek onze blokjes, harten, rugfilets, moten en plakjes Schotse gerookte zalm in de winkel.", de: "Entdecken Sie Würfel, Herzen, Rücken, Filetstücke und Scheiben von schottischem Räucherlachs im Shop." },
+  writeUs: { fr: "Écrivez-nous", en: "Write to us", es: "Escríbanos", nl: "Schrijf ons", de: "Schreiben Sie uns" },
+  soundOn: { fr: "Activer le son des vagues", en: "Enable wave sounds", es: "Activar el sonido de las olas", nl: "Golfgeluiden aanzetten", de: "Wellenklänge einschalten" },
+  soundOff: { fr: "Couper le son des vagues", en: "Mute wave sounds", es: "Silenciar las olas", nl: "Golfgeluiden uitzetten", de: "Wellenklänge ausschalten" },
+  soundUnavailable: { fr: "Le son n’est pas disponible dans ce navigateur.", en: "Sound is unavailable in this browser.", es: "El sonido no está disponible en este navegador.", nl: "Geluid is niet beschikbaar in deze browser.", de: "Ton ist in diesem Browser nicht verfügbar." },
+  playOcean: { fr: "Animer l’océan", en: "Play ocean", es: "Animar el océano", nl: "Oceaan afspelen", de: "Ozean abspielen" },
+  pauseOcean: { fr: "Mettre l’océan en pause", en: "Pause ocean", es: "Pausar el océano", nl: "Oceaan pauzeren", de: "Ozean pausieren" },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type Key = keyof typeof dict;

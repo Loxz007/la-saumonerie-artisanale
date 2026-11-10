@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero-saumon.jpg";
 import fumoir from "@/assets/fumoir.jpg";
+import ocean from "@/assets/ocean-ecosse.jpg";
+import slicing from "@/assets/tranchage-artisanal.jpg";
+import { OceanScene } from "@/components/OceanScene";
 import { Header, Footer } from "@/components/SiteChrome";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/lib/products";
@@ -25,9 +28,9 @@ export const Route = createFileRoute("/")({
 });
 
 const savoirFaire: { n: string; title: Key; sub: Key; text: Key; img: string }[] = [
-  { n: "01", title: "s1t", sub: "s1s", text: "s1x", img: hero },
+  { n: "01", title: "s1t", sub: "s1s", text: "s1x", img: ocean },
   { n: "02", title: "s2t", sub: "s2s", text: "s2x", img: fumoir },
-  { n: "03", title: "s3t", sub: "s3s", text: "s3x", img: hero },
+  { n: "03", title: "s3t", sub: "s3s", text: "s3x", img: slicing },
 ];
 
 function Index() {
@@ -52,7 +55,7 @@ function Index() {
         <div className="mt-24 space-y-24 md:space-y-40">
           {savoirFaire.map((s, i) => (
             <div key={s.n} className={`craft-row grid items-center gap-10 md:grid-cols-[1.3fr_1fr] md:gap-24 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
-              <CinematicImage src={s.img} alt={t(s.title)} className={i === 1 ? "aspect-[4/5]" : "aspect-[5/4]"} />
+              {i === 0 ? <OceanScene /> : <CinematicImage src={s.img} alt={t(s.title)} className={i === 1 ? "aspect-[4/5]" : "aspect-[5/4]"} />}
               <Reveal>
                 <span className="text-xs text-primary">— {s.n}</span>
                 <h3 className="mt-8 font-display text-4xl md:text-5xl">{t(s.title)}</h3>
