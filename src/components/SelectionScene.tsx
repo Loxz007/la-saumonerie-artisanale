@@ -17,7 +17,7 @@ type Key = [p: number, x: number, y: number, s: number, a: number];
 
 // Fish trajectory by scroll progress (x,y as fraction of the stage, s = scale factor, a = opacity)
 const path = (mobile: boolean): Key[] => mobile
-  ? [[0, 0.2, 0.3, 0.55, 0], [0.26, 0.3, 0.3, 0.6, 0], [0.4, 0.5, 0.3, 0.8, 1], [0.52, 0.5, 0.31, 1.05, 1], [0.7, 0.62, 0.27, 0.9, 1], [0.86, 0.66, 0.26, 0.85, 1], [1, 0.78, 0.2, 0.4, 0]]
+  ? [[0, 0.2, 0.24, 0.55, 0], [0.26, 0.3, 0.24, 0.6, 0], [0.4, 0.48, 0.24, 0.85, 1], [0.52, 0.5, 0.25, 1.1, 1], [0.7, 0.58, 0.22, 0.95, 1], [0.86, 0.6, 0.21, 0.9, 1], [1, 0.72, 0.16, 0.4, 0]]
   : [[0, 0.22, 0.52, 0.6, 0], [0.26, 0.3, 0.5, 0.65, 0], [0.4, 0.5, 0.48, 0.9, 1], [0.52, 0.52, 0.5, 1.25, 1], [0.7, 0.7, 0.45, 1.05, 1], [0.86, 0.76, 0.43, 1, 1], [1, 0.9, 0.34, 0.42, 0]];
 
 function sample(keys: Key[], p: number) {
@@ -122,7 +122,7 @@ export function SelectionScene() {
       st.px = x; st.py = y;
       const target = clamp(Math.atan2(st.vy, Math.abs(st.vx) + 1.2) * 0.9, -0.22, 0.22);
       st.angle += (target - st.angle) * 0.04;
-      const sc = (mobile ? W / 520 : Math.min(W / 1200, H / 700) * 1.1) * k.s;
+      const sc = (mobile ? W / 800 : Math.min(W / 1200, H / 700) * 1.1) * k.s;
       const speed = 0.85 + clamp(Math.hypot(st.vx, st.vy) / 3) * 0.5; // tail beats a little faster when travelling
       const flexAmp = 15 + clamp(Math.hypot(st.vx, st.vy) / 3) * 8;
       g.save(); g.translate(x, y); g.rotate(st.angle); g.scale(sc, sc * (1 + Math.sin(time * 0.9) * 0.012));
