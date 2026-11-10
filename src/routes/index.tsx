@@ -1,15 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import hero from "@/assets/hero-saumon.jpg";
 import fumoir from "@/assets/fumoir.jpg";
 import ocean from "@/assets/ocean-ecosse.jpg";
 import slicing from "@/assets/tranchage-artisanal.jpg";
 import { OceanScene } from "@/components/OceanScene";
+import { HomeHero } from "@/components/HomeHero";
 import { Header, Footer } from "@/components/SiteChrome";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/lib/products";
 import { useT, type Key } from "@/lib/i18n";
-import { motion, useReducedMotion } from "motion/react";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CinematicImage, Reveal } from "@/components/LuxuryMotion";
 
@@ -35,20 +34,10 @@ const savoirFaire: { n: string; title: Key; sub: Key; text: Key; img: string }[]
 
 function Index() {
   const { t } = useT();
-  const reduced = useReducedMotion();
   return (
     <div className="bg-background text-foreground">
       <Header />
-      <section className="home-hero relative flex items-center justify-center overflow-hidden">
-        <CinematicImage src={hero} alt="Saumon fumé tranché à la main" className="absolute inset-0" eager />
-        <div className="absolute inset-0 bg-hero-veil" />
-        <div className="relative w-full px-5 text-center md:px-12">
-          <motion.p className="mb-8 text-[10px] uppercase text-foreground/80" initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 1 }}>Varennes · France</motion.p>
-          <h1 className="hero-title font-display leading-[1.05]" aria-label="Saumonerie de Varennes"><span className="block overflow-hidden"><motion.span className="block" initial={reduced ? false : { y: "110%" }} animate={{ y: 0 }} transition={{ delay: 1.45, duration: 1.3, ease: [0.22, 1, 0.36, 1] }}>Saumonerie</motion.span></span><span className="block overflow-hidden"><motion.span className="block italic" initial={reduced ? false : { y: "110%" }} animate={{ y: 0 }} transition={{ delay: 1.65, duration: 1.3, ease: [0.22, 1, 0.36, 1] }}>de Varennes</motion.span></span></h1>
-          <motion.div initial={reduced ? false : { opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2, duration: 1 }}><p className="mx-auto mt-7 max-w-md text-sm text-foreground/80 md:text-base">{t("heroSub")}</p><Button variant="editorial" asChild className="mt-8 h-12 px-0 text-xs"><Link to="/boutique">{t("shop")}<ArrowUpRight /></Link></Button></motion.div>
-        </div>
-        <Button asChild variant="ghost" className="absolute bottom-6 left-1/2 -translate-x-1/2 gap-3 text-[10px] uppercase"><a href="#activite">{t("discover")}<ArrowDown /></a></Button>
-      </section>
+      <HomeHero />
 
       <section id="activite" className="mx-auto max-w-7xl px-6 py-24 md:py-36">
         <Reveal className="grid gap-8 md:grid-cols-[1fr_2fr]"><p className="eyebrow pt-3">{t("craftEyebrow")}</p><h2 className="max-w-3xl font-display text-4xl leading-tight md:text-6xl">{t("craftTitle")}</h2></Reveal>
