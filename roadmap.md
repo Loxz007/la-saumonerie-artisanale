@@ -1,1 +1,3 @@
 - [x] Site saumonerie (mix Varennes + style Labroca)
+- [x] Site en 4 langues : FR, EN, ES, NL, DE
+- [ ] Connecter la boutique Shopify existante (attend l'approbation de l'utilisateur)
