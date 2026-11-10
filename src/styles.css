@@ -210,33 +210,26 @@ body { letter-spacing: 0; }
 }
 
 /* ---- Selection scene (2nd section) ---- */
-.sel-bg { background: radial-gradient(ellipse 70% 60% at 60% 50%, oklch(0.2 0.02 70), var(--background) 70%); }
-.sel-fog { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.55; }
-.sel-fog-a { width: 60vw; height: 40vw; left: -10vw; top: 10%; background: radial-gradient(oklch(0.45 0.03 75 / 0.22), transparent 70%); }
-.sel-fog-b { width: 50vw; height: 35vw; right: -8vw; bottom: 0; background: radial-gradient(oklch(0.5 0.03 60 / 0.16), transparent 70%); }
-.sel-ray { position: absolute; top: -20%; left: 0; width: 2px; height: 140%; transform: rotate(18deg); transform-origin: top; background: linear-gradient(180deg, transparent, oklch(0.88 0.06 85 / 0.8), transparent); filter: blur(1px); box-shadow: 0 0 40px 6px oklch(0.8 0.06 85 / 0.18); opacity: 0.35; }
+.sel-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sel-shade { background: linear-gradient(90deg, rgb(3 4 5 / 0.55), transparent 62%); }
 .sel-quote-text { color: oklch(0.96 0.01 80); text-shadow: 0 0 60px oklch(0.76 0.065 85 / 0.25); }
-.sel-salmon { width: min(78vw, 560px); }
-.sel-salmon-img { width: 100%; height: auto; transform: scaleX(-1) rotate(-6deg); filter: drop-shadow(0 40px 50px oklch(0 0 0 / 0.65)); }
-/* side light: darkens the shadow side of the product, a soft champagne sheen on the lit side */
-.sel-light { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(100deg, oklch(0.12 0.005 60 / 0.78) 0%, oklch(0.12 0.005 60 / 0.15) 38%, transparent 55%, oklch(0.9 0.05 85 / 0.12) 100%); mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); mask-image: radial-gradient(closest-side, #000 72%, transparent 100%); }
-.sel-shadow { width: 55%; height: 26px; margin: -6px auto 0; border-radius: 50%; background: radial-gradient(oklch(0 0 0 / 0.7), transparent 70%); opacity: 0.55; }
+.sel-word { padding-bottom: 0.14em; }
 .sel-cta { position: relative; overflow: hidden; }
 .sel-cta::after { content: ""; position: absolute; inset: 0; transform: translateX(-120%); background: linear-gradient(100deg, transparent 30%, oklch(0.88 0.06 85 / 0.28) 50%, transparent 70%); transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
 .sel-cta:hover::after, .sel-cta:focus-visible::after { transform: translateX(120%); }
-/* animated mode only: tall scroll container + sticky stage */
+/* animated mode: tall scroll container + sticky stage */
 .sel-anim { height: 480vh; }
 .sel-anim .sel-stage { position: sticky; top: 0; height: 100svh; }
 .sel-anim .sel-content { min-height: 100svh; }
-/* static mode: the quote becomes a normal block above the content */
-.sel-root:not(.sel-anim) .sel-quote { position: static; transform: none; grid-column: 1 / -1; margin-bottom: 2rem; text-align: left; pointer-events: auto; }
-.sel-root:not(.sel-anim) .sel-content { padding-top: 7rem; padding-bottom: 7rem; }
+/* static mode (no JS / reduced motion): quote becomes a normal block */
+.sel-root:not(.sel-anim) .sel-quote { position: static; transform: none; margin-bottom: 2rem; text-align: left; pointer-events: auto; }
+.sel-root:not(.sel-anim) .sel-content { padding-top: 7rem; padding-bottom: 7rem; align-content: center; }
 @media (max-width: 767px) {
-  .sel-salmon { width: min(54vw, 280px); }
-  .sel-anim .sel-content { align-content: center; gap: 0.75rem; padding-top: 5.5rem; padding-bottom: 1.5rem; }
+  .sel-shade { background: linear-gradient(0deg, rgb(3 4 5 / 0.75), transparent 60%); }
+  .sel-content { align-content: end; padding-bottom: 2rem; }
   .sel-content .sel-brand.eyebrow { display: none; }
   .sel-content h2 { font-size: 2rem; margin-top: 0; }
   .sel-content .sel-cta-wrap { margin-top: 1rem; }
-  .sel-content .sel-info { margin-top: 0.25rem; }
+  .sel-content .sel-info { margin-top: 1.25rem; }
+  .sel-root:not(.sel-anim) .sel-canvas { opacity: 0.5; }
 }
-.sel-word { padding-bottom: 0.14em; }
