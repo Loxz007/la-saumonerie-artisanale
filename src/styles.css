@@ -174,9 +174,9 @@ body { letter-spacing: 0; }
 .hero-ring { position: absolute; border: 1px solid oklch(0.76 0.065 85 / 0.45); border-radius: 50%; }
 @media (max-width: 1023px) {
   .hero-mega { font-size: 30vw; margin-left: -4vw; margin-right: -4vw; }
-  .hero-title-wrap { top: 34% !important; }
+  .hero-title-wrap { top: 36% !important; }
   .hero-product-par { margin-top: 16svh; }
-  .hero-pave { width: min(58vw, 440px); }
+  .hero-pave { width: min(44vw, 360px); }
 }
 @media (max-width: 639px) {
   .hero-mega { font-size: 29vw; }
