@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { LangProvider } from "../lib/i18n";
+import { LuxuryExperience } from "@/components/LuxuryMotion";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -128,7 +129,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <LangProvider>
-        <Outlet />
+        <LuxuryExperience><Outlet /></LuxuryExperience>
       </LangProvider>
     </QueryClientProvider>
   );

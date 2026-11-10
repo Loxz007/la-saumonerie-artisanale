@@ -5,6 +5,10 @@ import { Header, Footer } from "@/components/SiteChrome";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/lib/products";
 import { useT, type Key } from "@/lib/i18n";
+import { motion, useReducedMotion } from "motion/react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CinematicImage, Reveal } from "@/components/LuxuryMotion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -13,6 +17,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "L'excellence du saumon fumé écossais, fumé et tranché à la main par la Saumonerie de Varennes." },
       { property: "og:title", content: "Saumonerie de Varennes — Saumon fumé artisanal" },
       { property: "og:description", content: "L'excellence du saumon fumé écossais, fumé et tranché à la main." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -26,38 +32,33 @@ const savoirFaire: { n: string; title: Key; sub: Key; text: Key; img: string }[]
 
 function Index() {
   const { t } = useT();
+  const reduced = useReducedMotion();
   return (
     <div className="bg-background text-foreground">
       <Header />
-      <section className="relative flex h-screen min-h-[640px] items-center justify-center overflow-hidden">
-        <img src={hero} alt="Saumon fumé tranché à la main" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
+      <section className="home-hero relative flex items-center justify-center overflow-hidden">
+        <CinematicImage src={hero} alt="Saumon fumé tranché à la main" className="absolute inset-0" eager />
         <div className="absolute inset-0 bg-hero-veil" />
-        <div className="relative px-6 text-center animate-in fade-in slide-in-from-bottom-6 duration-1000">
-          <h1 className="font-display text-[13vw] uppercase leading-[0.9] tracking-tight md:text-[9vw]">Saumonerie</h1>
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <span className="h-px w-12 bg-foreground/50" />
-            <p className="font-display text-lg italic md:text-2xl">{t("heroSub")}</p>
-            <span className="h-px w-12 bg-foreground/50" />
-          </div>
+        <div className="relative w-full px-5 text-center md:px-12">
+          <motion.p className="mb-8 text-[10px] uppercase text-foreground/80" initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 1 }}>Varennes · France</motion.p>
+          <h1 className="hero-title font-display leading-[1.05]" aria-label="Saumonerie de Varennes"><span className="block overflow-hidden"><motion.span className="block" initial={reduced ? false : { y: "110%" }} animate={{ y: 0 }} transition={{ delay: 1.45, duration: 1.3, ease: [0.22, 1, 0.36, 1] }}>Saumonerie</motion.span></span><span className="block overflow-hidden"><motion.span className="block italic" initial={reduced ? false : { y: "110%" }} animate={{ y: 0 }} transition={{ delay: 1.65, duration: 1.3, ease: [0.22, 1, 0.36, 1] }}>de Varennes</motion.span></span></h1>
+          <motion.div initial={reduced ? false : { opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2, duration: 1 }}><p className="mx-auto mt-7 max-w-md text-sm text-foreground/80 md:text-base">{t("heroSub")}</p><Button variant="editorial" asChild className="mt-8 h-12 px-0 text-xs"><Link to="/boutique">{t("shop")}<ArrowUpRight /></Link></Button></motion.div>
         </div>
-        <a href="#activite" className="eyebrow absolute bottom-10 left-1/2 -translate-x-1/2">{t("discover")}</a>
+        <Button asChild variant="ghost" className="absolute bottom-6 left-1/2 -translate-x-1/2 gap-3 text-[10px] uppercase"><a href="#activite">{t("discover")}<ArrowDown /></a></Button>
       </section>
 
-      <section id="activite" className="mx-auto max-w-7xl px-6 py-28">
-        <p className="eyebrow">{t("craftEyebrow")}</p>
-        <h2 className="mt-4 max-w-3xl font-display text-4xl md:text-6xl">{t("craftTitle")}</h2>
-        <div className="mt-20 space-y-28">
+      <section id="activite" className="mx-auto max-w-7xl px-6 py-24 md:py-36">
+        <Reveal className="grid gap-8 md:grid-cols-[1fr_2fr]"><p className="eyebrow pt-3">{t("craftEyebrow")}</p><h2 className="max-w-3xl font-display text-4xl leading-tight md:text-6xl">{t("craftTitle")}</h2></Reveal>
+        <div className="mt-24 space-y-24 md:space-y-40">
           {savoirFaire.map((s, i) => (
-            <div key={s.n} className={`grid items-center gap-10 md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={s.img} alt={t(s.title)} loading="lazy" className="h-full w-full object-cover" />
-              </div>
-              <div>
-                <span className="font-display text-7xl text-primary/80">{s.n}</span>
-                <h3 className="mt-4 font-display text-3xl uppercase tracking-wide">{t(s.title)}</h3>
+            <div key={s.n} className={`craft-row grid items-center gap-10 md:grid-cols-[1.3fr_1fr] md:gap-24 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
+              <CinematicImage src={s.img} alt={t(s.title)} className={i === 1 ? "aspect-[4/5]" : "aspect-[5/4]"} />
+              <Reveal>
+                <span className="text-xs text-primary">— {s.n}</span>
+                <h3 className="mt-8 font-display text-4xl md:text-5xl">{t(s.title)}</h3>
                 <p className="eyebrow mt-2">{t(s.sub)}</p>
                 <p className="mt-6 max-w-md text-muted-foreground">{t(s.text)}</p>
-              </div>
+              </Reveal>
             </div>
           ))}
         </div>
@@ -66,7 +67,7 @@ function Index() {
       <section className="relative overflow-hidden py-28">
         <img src={fumoir} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-background/80" />
-        <div className="relative mx-auto max-w-7xl px-6">
+        <Reveal className="relative mx-auto max-w-7xl px-6">
           <h2 className="max-w-2xl font-display text-4xl md:text-5xl">{t("statsTitle")}</h2>
           <div className="mt-14 grid gap-10 sm:grid-cols-3">
             {([["100%", "st1"], ["8", "st2"], ["1", "st3"]] as [string, Key][]).map(([v, l]) => (
@@ -76,19 +77,19 @@ function Index() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-28">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+        <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="eyebrow">{t("featured")}</p>
             <h2 className="mt-4 font-display text-4xl md:text-6xl">{t("shop")}</h2>
           </div>
-          <Link to="/boutique" className="rounded-full border border-primary px-8 py-3 text-xs uppercase tracking-[0.3em] text-primary transition hover:bg-primary hover:text-primary-foreground">{t("seeAll")}</Link>
-        </div>
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {products.slice(0, 4).map((p) => <ProductCard key={p.name} p={p} />)}
+          <Button asChild variant="editorial" className="h-12 px-0 text-xs"><Link to="/boutique">{t("seeAll")}<ArrowUpRight /></Link></Button>
+        </Reveal>
+        <div className="featured-products mt-16 grid gap-x-10 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+          {products.slice(0, 4).map((p, i) => <Reveal key={p.name} delay={i * 0.08}><ProductCard p={p} /></Reveal>)}
         </div>
       </section>
       <Footer />
