@@ -168,19 +168,17 @@ body { letter-spacing: 0; }
 .hero-title { font-size: 112px; }
 .hero-immersive { height: 220vh; }
 .bg-hero-glow { background: radial-gradient(ellipse at 50% 45%, oklch(0.3 0.04 60), var(--background) 65%); }
-.hero-mega { font-size: 27vw; font-weight: 700; line-height: 0.85; white-space: nowrap; letter-spacing: -0.02em; }
+.hero-mega { font-size: 20.5vw; font-weight: 700; line-height: 0.85; white-space: nowrap; letter-spacing: -0.02em; }
 .hero-letter { background: linear-gradient(180deg, #e9c98f, #b8803a 55%, #4a2f14); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; padding: 0 0.02em; }
-.hero-pave { width: min(28vw, 380px); height: auto; filter: drop-shadow(0 30px 40px oklch(0 0 0 / 0.5)); }
+.hero-pave { width: min(26vw, 380px); height: auto; filter: drop-shadow(0 30px 40px oklch(0 0 0 / 0.5)); }
 .hero-shadow { width: 60%; height: 28px; margin-top: -10px; border-radius: 50%; background: radial-gradient(oklch(0 0 0 / 0.7), transparent 70%); opacity: 0.6; }
 .hero-ring { position: absolute; border: 1px solid oklch(0.76 0.065 85 / 0.45); border-radius: 50%; }
 @media (max-width: 1023px) {
-  .hero-mega { font-size: 28vw; }
   .hero-title-wrap { top: 36% !important; }
   .hero-product-par { margin-top: 16svh; }
   .hero-pave { width: min(38vw, 320px); }
 }
 @media (max-width: 639px) {
-  .hero-mega { font-size: 27.5vw; }
   .hero-pave { width: 54vw; }
 }
 .cinematic-image { overflow: hidden; }
