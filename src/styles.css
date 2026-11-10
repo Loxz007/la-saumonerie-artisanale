@@ -231,4 +231,12 @@ body { letter-spacing: 0; }
 /* static mode: the quote becomes a normal block above the content */
 .sel-root:not(.sel-anim) .sel-quote { position: static; transform: none; grid-column: 1 / -1; margin-bottom: 2rem; text-align: left; pointer-events: auto; }
 .sel-root:not(.sel-anim) .sel-content { padding-top: 7rem; padding-bottom: 7rem; }
-@media (max-width: 767px) { .sel-salmon { width: min(72vw, 360px); } .sel-anim .sel-content { align-content: center; } }
+@media (max-width: 767px) {
+  .sel-salmon { width: min(54vw, 280px); }
+  .sel-anim .sel-content { align-content: center; gap: 0.75rem; padding-top: 5.5rem; padding-bottom: 1.5rem; }
+  .sel-content .sel-brand.eyebrow { display: none; }
+  .sel-content h2 { font-size: 2rem; margin-top: 0; }
+  .sel-content .sel-cta-wrap { margin-top: 1rem; }
+  .sel-content .sel-info { margin-top: 0.25rem; }
+}
+.sel-word { padding-bottom: 0.14em; }

@@ -55,7 +55,7 @@ export function SelectionScene() {
           .to(q(".sel-light"), { opacity: 1, xPercent: 0, duration: 0.22, ease: "power2.out" }, 0.3)
           // 4. drift right, quote leaves
           .to(q(".sel-quote"), { opacity: 0, y: -24, duration: 0.12, ease: "power2.in" }, 0.5)
-          .to(q(".sel-drift"), { x: `${drift}vw`, y: mobile ? "-8vh" : 0, duration: 0.2, ease: "power2.inOut" }, 0.5)
+          .to(q(".sel-drift"), { x: `${drift}vw`, duration: 0.2, ease: "power2.inOut" }, 0.5)
           .to(q(".sel-light"), { xPercent: 18, duration: 0.2 }, 0.5)
           .to(q(".sel-brand"), { opacity: 1, y: 0, duration: 0.1, ease: "power3.out" }, 0.62)
           .to(q(".sel-cta-wrap"), { opacity: 1, y: 0, duration: 0.1, ease: "power3.out" }, 0.68)
